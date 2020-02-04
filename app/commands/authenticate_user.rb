@@ -4,6 +4,7 @@ class AuthenticateUser
   def initialize(email, password)
     @email    = email
     @password = password
+    @errors   = []
   end
 
   def call
@@ -11,18 +12,18 @@ class AuthenticateUser
   end
 
   private
-  attr_accessor :email, :password
+  attr_accessor :email, :password, :errors
 
   def api_user
     user = User.find_by(email: email)
     unless user.present?
-      errors.add :message, "Invalid email or password"
+      errors << "Invalid email or password"
       return nil
     end
 
     # Verify the password. You can create a blank method for now.
     unless user.valid_password?(password)
-      errors.add :message, "Invalid email or password"
+      errors << "Invalid email or password"
       return nil
     end
 
