@@ -5,4 +5,13 @@
   ```
     git@github.com:jaybalanay/passionate-navigation.git
   ```
+- Execute `bundle install` to install all gems in Gemfile
+- Setup your database
+  ```
+    bundle exec rake db:setup
+  ```
+- Run `bundle exec rails s`
 
+## Questions
+- Test Question
+  Answer
