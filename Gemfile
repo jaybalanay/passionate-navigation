@@ -51,3 +51,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Token based authentication
 gem 'devise'
 gem 'jwt'
+gem 'simple_command'
