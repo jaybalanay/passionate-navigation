@@ -1,5 +1,3 @@
-# Coding Challenge 'Passionate Navigation'
-
 ## Stack
 - Rails 6.0
 - Ruby 2.6
