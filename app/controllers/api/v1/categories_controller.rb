@@ -40,7 +40,7 @@ module Api
       end
 
       def destroy
-        client = CategoryService::Destroyer.new(id: params[:id], vertical_id: params[:vertical_id])
+        client = CategoryService::Destroyer.new(params)
         client.destroy
         head :no_content
       end
