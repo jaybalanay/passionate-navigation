@@ -2,11 +2,16 @@ module VerticalService
   class Updater < Base
 
     def update
-      vertical.update(vertical_params)
-      return vertical if vertical.errors.empty?
+      if vertical
+        vertical.update(vertical_params)
+        return vertical if vertical.errors.empty?
 
-      errors << vertical.errors.full_messages
-      nil
+        errors << vertical.errors.full_messages
+        nil
+      else
+        errors << "Vertical not found."
+        nil
+      end
     end
 
     private

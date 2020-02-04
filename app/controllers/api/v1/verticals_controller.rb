@@ -14,34 +14,34 @@ module Api
       end
 
       def create
-        vertical_client = VerticalService::Creator.new(params)
-        vertical        = vertical_client.create
+        client    = VerticalService::Creator.new(params)
+        vertical  = client.create
 
         json_response, status = if vertical
                                   [{ vertical: vertical }, :ok]
                                 else
-                                  [{ error: vertical_client.errors }, :bad_request]
+                                  [{ error: client.errors }, :bad_request]
                                 end
 
         render json: json_response, status: status
       end
 
       def update
-        vertical_client = VerticalService::Updater.new(params)
-        vertical        = vertical_client.update
+        client    = VerticalService::Updater.new(params)
+        vertical  = client.update
 
         json_response, status = if vertical
                                   [{ vertical: vertical }, :ok]
                                 else
-                                  [{ error: vertical_client.errors }, :bad_request]
+                                  [{ error: client.errors }, :bad_request]
                                 end
 
         render json: json_response, status: status
       end
 
       def destroy
-        vertical_client = VerticalService::Destroyer.new(id: params[:id])
-        vertical_client.destroy
+        client = VerticalService::Destroyer.new(id: params[:id])
+        client.destroy
         head :no_content
       end
 
