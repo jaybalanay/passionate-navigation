@@ -34,10 +34,17 @@ courses_json_file = File.read(Rails.root.join('db', 'json', 'courses.json'))
 JSON.parse(courses_json_file).each do |course|
   course_hash   = course.transform_keys!(&:downcase).symbolize_keys
   category      = Category.find_by(id: course_hash[:categories])
-  course_params = course_hash.except(:category)
+  course_params = course_hash.except(:categories)
 
   course          = Course.new(course_params)
   course.category = category
   course.save
 end
 
+## Fix the ID sequence of Postgres.
+## This is needed because the json file
+## for verticals, categories, courses
+## contains id when created
+ActiveRecord::Base.connection.tables.each do |t|
+  ActiveRecord::Base.connection.reset_pk_sequence!(t)
+end
