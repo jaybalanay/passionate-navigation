@@ -41,10 +41,10 @@
 
 ## Questions
 - How does your solution perform?
-  - My solution performs well. The codebase is as minimal as I can code it. And I've added enough validations and conditions to properly handle every request and to avoid invalid records in the database.
+  - My solution performs well. The codebase is as minimal as I can code it. I've added enough validations and conditions to properly handle every request and to avoid invalid records in the database.
 
 - How does your solution scale?
-  - I think my solution will scale. I've used Service Objects to perform single actions for different objects. Adding more features / extra business logic means adding more Service Objects.
+  - I think my solution will scale. I've used Services to execute single actions for different objects (create, update, destroy). Adding more features / extra business logic means adding more Services. I've also added concerns to used across objects requiring the same logic/validation/condition.
 
 - What would improve next?
   - I'm thinking of improving the URLs to use UUID instead of just ID to make it more secure. And probably add proper user registration process, because right now, adding new user will require rails console to setup.
