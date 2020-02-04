@@ -1,7 +1,9 @@
 class Category < ApplicationRecord
+  include UniqueNameValidation
+
   ## Association
   belongs_to :vertical
-  has_many :cources
+  has_many :courses
 
   ## Validation
   validates :name, presence: true, uniqueness: true

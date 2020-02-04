@@ -1,4 +1,6 @@
 class Vertical < ApplicationRecord
+  include UniqueNameValidation
+
   ## Association
   has_many :categories
 
